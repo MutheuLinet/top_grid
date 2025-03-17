@@ -109,7 +109,7 @@ const Contact = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             type="submit"
-                            className="w-full bg-[#1d6042] text-white px-6 py-3 rounded-lg shadow-lg hover:bg-[#0f3e2a] transition-all font-medium"
+                            className="w-full  bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transition-all font-medium"
                             aria-label="Send Message"
                         >
                             Send Message
