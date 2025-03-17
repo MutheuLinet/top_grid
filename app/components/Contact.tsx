@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image"; 
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -12,7 +13,7 @@ const Contact = () => {
     };
 
     const validate = () => {
-        let newErrors: typeof errors = {};
+        const newErrors: typeof errors = {}; 
         if (!formData.name.trim()) newErrors.name = "Name is required";
         if (!formData.email.trim()) newErrors.email = "Email is required";
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Invalid email address";
@@ -38,9 +39,11 @@ const Contact = () => {
             >
                 {/* Illustration Section (Left Side) */}
                 <div className="w-1/2 bg-green-50 flex items-center justify-center p-10">
-                    <img
-                        src="/tel1.jpg" // Replace with your Zen-themed illustration
+                    <Image
+                        src="/tel1.jpg"
                         alt="Zen Illustration"
+                        width={800} 
+                        height={600}
                         className="w-full h-auto max-w-md"
                     />
                 </div>

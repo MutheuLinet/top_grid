@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image"; 
 
 const About = () => {
     const [showDetails, setShowDetails] = useState(false);
@@ -32,7 +33,7 @@ const About = () => {
                         </p>
                         <p className="text-gray-700">
                             Our mission is to provide tailored eco-friendly strategies that
-                            drive impact, efficiency, and resilience in today's evolving
+                            drive impact, efficiency, and resilience in today&apos;s evolving
                             environmental landscape.
                         </p>
                         <div className="flex gap-4">
@@ -53,9 +54,11 @@ const About = () => {
 
                     {/* Image */}
                     <div className="relative">
-                        <img
+                        <Image
                             src="/sa.jpg"
                             alt="Sustainability"
+                            width={800} 
+                            height={600}
                             className="w-full h-auto rounded-lg shadow-xl"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1d6042] via-transparent to-transparent opacity-30 rounded-lg"></div>

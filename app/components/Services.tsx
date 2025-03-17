@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image"; 
 
 const services = [
     {
@@ -81,12 +82,13 @@ const Services = () => {
                             key={index}
                             className="min-w-[700px] bg-white border border-gray-200 rounded-xl flex transition-all duration-300 mb-4 snap-center p-6"
                         >
-
                             {/* Image Section */}
                             <div className="w-1/2 relative">
-                                <img
+                                <Image
                                     src={service.icon}
                                     alt={service.title}
+                                    width={350} 
+                                    height={350}
                                     className="w-full h-full object-cover rounded-l-lg"
                                 />
                             </div>

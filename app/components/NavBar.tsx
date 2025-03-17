@@ -1,9 +1,9 @@
 "use client";
-
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "./NavLink";
+import Image from "next/image";
 
 export const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,6 @@ export const NavBar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
@@ -30,16 +29,19 @@ export const NavBar = () => {
                 Call Us: +254 719 695 270 | +254 735 112 889
             </div>
 
-
             {/* Navbar (Sticky After Scrolling) */}
             <header className={`fixed top-[40px] left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#f9f4f1] shadow-md" : "bg-transparent"}`}>
-
-
                 <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
                         <div className="flex items-center">
-                            <img src="/eco_logo.png" alt="TopGrid EcoSolution" className="h-20 " />
+                            <Image
+                                src="/eco_logo.png"
+                                alt="TopGrid EcoSolution"
+                                width={100} // Set the appropriate width
+                                height={80} // Set the appropriate height
+                                className="h-20"
+                            />
                         </div>
 
                         {/* Desktop Menu */}
