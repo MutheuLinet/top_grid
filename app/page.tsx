@@ -24,12 +24,13 @@ export default function Home() {
         <section id="services" aria-label="Our Services">
           <Services />
         </section>
-        <section id="projects" aria-label="Our Projects">
-          <Projects />
-        </section>
         <section id="contact" aria-label="Contact Us">
           <Contact />
         </section>
+        <section id="projects" aria-label="Our Projects">
+          <Projects />
+        </section>
+
       </main>
     </>
   );

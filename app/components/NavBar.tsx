@@ -30,7 +30,7 @@ export const NavBar = () => {
             </div>
 
             {/* Navbar (Sticky After Scrolling) */}
-            <header className={`fixed top-[40px] left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#f9f4f1] shadow-md" : "bg-transparent"}`}>
+            <header className={`fixed top-[40px] left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#f7f8f9] shadow-md" : "bg-transparent"}`}>
                 <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
