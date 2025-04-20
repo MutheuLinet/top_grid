@@ -57,20 +57,6 @@ const About = () => {
                                 Contact Us
                             </a>
                         </div>
-
-                        {/* Mobile-only indicator for expanded content */}
-                        <AnimatePresence>
-                            {showDetails && (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    className="md:hidden text-sm text-[#1d6042] italic"
-                                >
-                                    (Scroll down for more information)
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
                     </div>
 
                     {/* Image with cut-out effect */}

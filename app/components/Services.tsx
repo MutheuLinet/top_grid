@@ -121,7 +121,7 @@ const services: Service[] = [
 
 export default function Services() {
     const [selectedService, setSelectedService] = useState<number | null>(null);
-    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [currentIndex, setCurrentIndex] = useState<number>(1);
     const [touchStart, setTouchStart] = useState<number>(0);
     const [touchEnd, setTouchEnd] = useState<number>(0);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -178,7 +178,7 @@ export default function Services() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-hidden">
                 <div className="text-center mb-2 md:mb-4">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#1d6042] mb-2">Our Services</h2>
-                    <p className="text-base md:text-lg text-gray-700">Tailored solutions for your sustainability challenges</p>
+                    <p className="mb-4 text-base md:text-lg text-gray-700">Tailored solutions for your sustainability challenges</p>
                 </div>
 
                 <div className="relative h-[60vh] w-full">
@@ -283,13 +283,15 @@ export default function Services() {
                                 onClick={(e) => e.stopPropagation()}
                                 className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
                             >
+                                {/* Improved close button positioning */}
                                 <button
                                     onClick={closeModal}
-                                    className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-100"
+                                    className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 z-50"
                                     aria-label="Close modal"
                                 >
                                     <X className="h-5 w-5 text-gray-600" />
                                 </button>
+
                                 <div className="grid md:grid-cols-2">
                                     <div className="relative h-64 md:h-auto min-h-[300px]">
                                         <Image
@@ -299,39 +301,43 @@ export default function Services() {
                                             className="object-cover"
                                         />
                                     </div>
-                                    <div className="p-6 md:p-8">
-                                        <h3 className="text-2xl font-bold text-gray-900">
+                                    <div className="p-4 sm:p-6 md:p-8">
+                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
                                             {services[selectedService].title}
                                         </h3>
-                                        <p className="text-gray-700 mt-3">
+                                        <p className="text-gray-700 mt-2 sm:mt-3 text-sm sm:text-base">
                                             {services[selectedService].fullDescription}
                                         </p>
-                                        <div className="mt-6">
-                                            <h4 className="text-lg font-semibold text-gray-900 mb-3">Service Details:</h4>
-                                            <ul className="space-y-2">
+                                        <div className="mt-4 sm:mt-6">
+                                            <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
+                                                Service Details:
+                                            </h4>
+                                            <ul className="space-y-1 sm:space-y-2">
                                                 {services[selectedService].details.map((detail, i) => (
-                                                    <li key={i} className="text-sm text-gray-700 flex items-start">
+                                                    <li key={i} className="text-xs sm:text-sm text-gray-700 flex items-start">
                                                         <Plus size={14} className={`mt-1 mr-2 ${services[selectedService].textColor}`} />
                                                         {detail}
                                                     </li>
                                                 ))}
                                             </ul>
                                         </div>
-                                        <div className="mt-6">
-                                            <h4 className="text-lg font-semibold text-gray-900 mb-3">Benefits:</h4>
-                                            <ul className="space-y-2">
+                                        <div className="mt-4 sm:mt-6">
+                                            <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
+                                                Benefits:
+                                            </h4>
+                                            <ul className="space-y-1 sm:space-y-2">
                                                 {services[selectedService].benefits.map((benefit, i) => (
-                                                    <li key={i} className="text-sm text-gray-700 flex items-start">
+                                                    <li key={i} className="text-xs sm:text-sm text-gray-700 flex items-start">
                                                         <Plus size={14} className="mt-1 mr-2 text-green-600" />
                                                         {benefit}
                                                     </li>
                                                 ))}
                                             </ul>
                                         </div>
-                                        <div className="mt-6">
+                                        <div className="mt-4 sm:mt-6">
                                             <button
                                                 onClick={() => handleRequestService(services[selectedService].title)}
-                                                className="inline-flex items-center px-5 py-2.5 bg-[#1d6042] text-white rounded-lg hover:bg-[#134d35]"
+                                                className="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 bg-[#1d6042] text-white rounded-lg hover:bg-[#134d35] text-sm sm:text-base"
                                             >
                                                 Request This Service
                                             </button>
