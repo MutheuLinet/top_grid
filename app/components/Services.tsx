@@ -178,10 +178,10 @@ export default function Services() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-hidden">
                 <div className="text-center mb-2 md:mb-4">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#1d6042] mb-2">Our Services</h2>
-                    <p className="mb-4 text-base md:text-lg text-gray-700">Tailored solutions for your sustainability challenges</p>
+                    <p className="mb-8 text-base md:text-lg text-gray-700">Tailored solutions for your sustainability challenges</p>
                 </div>
 
-                <div className="relative h-[60vh] w-full">
+                <div className="relative h-[80vh] w-full">
                     {/* Dynamic background that changes with slide */}
                     <div className={`absolute inset-0 ${services[currentIndex].color} transition-colors duration-700 -z-10`} />
 

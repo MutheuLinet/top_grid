@@ -34,22 +34,30 @@ const About = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <button
-                                onClick={toggleDetails}
-                                className="flex items-center justify-center gap-2 bg-[#1d6042] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-[#0f3e2a] transition-all"
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 1, delay: 0.3 }}
                             >
-                                {showDetails ? (
-                                    <>
-                                        <span>Show Less</span>
-                                        <ChevronUp size={20} />
-                                    </>
-                                ) : (
-                                    <>
-                                        <span>Learn More</span>
-                                        <ChevronDown size={20} />
-                                    </>
-                                )}
-                            </button>
+                                <button
+                                    onClick={toggleDetails}
+                                    className="flex items-center justify-center gap-2 bg-[#1d6042] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-[#0f3e2a] transition-all"
+                                >
+                                    {showDetails ? (
+                                        <>
+                                            <span>Show Less</span>
+                                            <ChevronUp size={20} />
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span>Learn More</span>
+                                            <ChevronDown size={20} />
+                                        </>
+                                    )}
+                                </button>
+                            </motion.p>
+
                             <a
                                 href="#contact"
                                 className="text-center border-2 border-[#1d6042] text-[#1d6042] px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-[#1d6042] hover:text-white transition-all"
@@ -94,12 +102,7 @@ const About = () => {
                             className="overflow-hidden mt-6 md:mt-10 p-6 md:p-8 bg-gray-50 rounded-lg shadow-inner border border-gray-200"
                         >
                             <div className="max-w-5xl mx-auto space-y-6">
-                                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                                    Our team of skilled professionals, including
-                                    environmental experts, hydrologists, and agronomists,
-                                    bring a wealth of knowledge and experience to tackle
-                                    the pressing challenges of our time.
-                                </p>
+
 
                                 <h3 className="text-xl sm:text-2xl font-bold text-[#1d6042]">Our Mission</h3>
                                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
@@ -125,6 +128,15 @@ const About = () => {
                                     <li><span className="font-semibold">Collaboration:</span> Partnering with experts and organizations.</li>
                                     <li><span className="font-semibold">Integrity:</span> Upholding transparency and ethics.</li>
                                 </ul>
+                                <h3 className="text-xl sm:text-2xl font-bold text-[#1d6042]">Our Team</h3>
+
+                                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                                    We are a multidisciplinary team of passionate professionals: environmental experts, hydrologists, agronomists, and climate specialists dedicated to building a more sustainable and resilient future.
+                                    <br /><br />
+                                    With a wealth of experience across water, environment, agriculture, and climate adaptability, we bring integrated solutions to complex challenges. Our strength lies not only in our technical expertise but also in our collaborative approach—working alongside communities, businesses, and governments to create impact that lasts.
+                                    <br /><br />
+                                    Together, we believe in shaping a world where people and nature coexist in harmony, now and for future generations.
+                                </p>
                             </div>
                         </motion.div>
                     )}
