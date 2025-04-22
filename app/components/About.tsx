@@ -42,7 +42,7 @@ const About = () => {
                             >
                                 <button
                                     onClick={toggleDetails}
-                                    className="flex items-center justify-center gap-2 bg-[#1d6042] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-[#0f3e2a] transition-all"
+                                    className="w-full flex items-center justify-center gap-2 bg-[#1d6042] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-[#0f3e2a] transition-all"
                                 >
                                     {showDetails ? (
                                         <>

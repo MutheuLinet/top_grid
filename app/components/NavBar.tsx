@@ -25,12 +25,13 @@ export const NavBar = () => {
     return (
         <>
             {/* Top Contact Bar (Not Fixed, Scrolls Away) */}
-            <div className="fixed top-0 left-0 w-full bg-[#134d35] text-white text-center p-2 z-50">
+            <div className="fixed top-0 left-0 w-full bg-[#134d35] text-white text-center px-2 py-1 z-50 text-sm sm:text-base whitespace-normal">
                 Call Us: +254 719 695 270 | +254 735 112 889
             </div>
 
+
             {/* Navbar (Sticky After Scrolling) */}
-            <header className={`fixed top-[40px] left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#f7f8f9] shadow-md" : "bg-transparent"}`}>
+            <header className={`fixed top-[28px] left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#f7f8f9] shadow-md" : "bg-transparent"}`}>
                 <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
