@@ -34,7 +34,7 @@ const Projects = () => {
                 </p>
 
                 {/* Projects Grid - Responsive columns */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     {projects.map((project) => (
                         <motion.div
                             key={project.id}
@@ -57,7 +57,7 @@ const Projects = () => {
                             {/* Hover overlay effect */}
                             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                                 <span className="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-medium text-lg">
-                                    View Project
+                                    View Image
                                 </span>
                             </div>
                         </motion.div>
