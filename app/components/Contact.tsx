@@ -19,6 +19,7 @@ const Contact = () => {
     }>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState("");
 
     useEffect(() => {
         // Check for service request from context first
@@ -61,28 +62,39 @@ const Contact = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!validate()) return;
 
         setIsSubmitting(true);
+        setSubmitError("");
 
         try {
-            // Log the form data instead of sending to API
-            console.log('Form submission data:', formData);
+            const form = e.currentTarget;
+            const website = new FormData(form).get("website") ?? "";
 
-            // Simulate API call delay
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...formData, website }),
+            });
 
-            // Show success message
+            const data = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+                throw new Error(data.error || "There was an error submitting your form. Please try again.");
+            }
+
             setSubmitSuccess(true);
             setFormData({ name: "", email: "", message: "", service: "" });
-            setServiceRequest(null); // Clear the service request after submission
-
-            console.log('Form submitted successfully!');
+            setServiceRequest(null);
         } catch (error) {
-            console.error('Error submitting form:', error);
-            alert('There was an error submitting your form. Please try again.');
+            console.error("Error submitting form:", error);
+            setSubmitError(
+                error instanceof Error
+                    ? error.message
+                    : "There was an error submitting your form. Please try again."
+            );
         } finally {
             setIsSubmitting(false);
         }
@@ -151,6 +163,17 @@ const Contact = () => {
                             <input type="hidden" name="service" value={formData.service} />
                         )}
 
+                        <div className="hidden" aria-hidden="true">
+                            <label htmlFor="website">Website</label>
+                            <input
+                                id="website"
+                                type="text"
+                                name="website"
+                                tabIndex={-1}
+                                autoComplete="off"
+                            />
+                        </div>
+
                         {/* Name Field */}
                         <div>
                             <label className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
@@ -200,6 +223,12 @@ const Contact = () => {
                             />
                             {errors.message && <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.message}</p>}
                         </div>
+
+                        {submitError && (
+                            <p className="text-red-500 text-sm" role="alert">
+                                {submitError}
+                            </p>
+                        )}
 
                         {/* Submit Button */}
                         <motion.button
